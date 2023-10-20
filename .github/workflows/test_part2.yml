@@ -1,0 +1,13 @@
+name: test_part2
+on: [push]
+jobs:
+  run_4_testcase:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+        with:
+          python-version: '3.9'
+      - run: pip install django
+      - run: pip install djfernet
+      - run: DB_key=vTaOybZMYDSbYVm5K0PMn9idcLAIGcSm5P_pylO4ysg= python manage.py test
